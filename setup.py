@@ -6,11 +6,7 @@ setup(
     author="Nathan Hubens",
     author_email="nathan.hubens@umons.ac.be",
     description="A package to convert your Jupyter Notebook",
-    long_description=readme,
-    long_description_content_type="text/markdown",
-    url="https://github.com/your_package/homepage/",
     packages=find_packages(),
-    install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
