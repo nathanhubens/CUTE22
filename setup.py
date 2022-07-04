@@ -3,8 +3,6 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["ipython>=6", "nbformat>=4", "nbconvert>=5", "requests>=2"]
-
 setup(
     name="cute",
     version="0.0.1",
