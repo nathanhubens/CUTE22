@@ -1,5 +1,6 @@
 import torch
 import matplotlib.pyplot as plt
+from fastai.vision.all import *
 from torchvision.utils import make_grid
 
 
@@ -27,3 +28,12 @@ def print_sparsity(model):
     for k,m in enumerate(model.modules()):
         if isinstance(m, nn.Conv2d):
             print(f"Sparsity in {m.__class__.__name__} {k}: {100. * float(torch.sum(m.weight == 0))/ float(m.weight.nelement()):.2f}%")
+
+def get_data(size, bs):
+    path = untar_data(URLs.IMAGENETTE_160)
+
+    return (ImageList.from_folder(path).split_by_folder(valid='val')
+            .label_from_folder().transform(([flip_lr(p=0.5)], []), size=size)
+            .databunch(bs=bs)
+            .presize(size, scale=(0.35,1))
+            .normalize(imagenet_stats))
