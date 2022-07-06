@@ -29,11 +29,20 @@ def print_sparsity(model):
         if isinstance(m, nn.Conv2d):
             print(f"Sparsity in {m.__class__.__name__} {k}: {100. * float(torch.sum(m.weight == 0))/ float(m.weight.nelement()):.2f}%")
 
-def get_data(size, bs):
-    path = untar_data(URLs.IMAGENETTE_160)
+def get_dls(size, bs):
+    path = URLs.IMAGENETTE_320
+    source = untar_data(path)
+    blocks=(ImageBlock, CategoryBlock)
+    tfms = [RandomResizedCrop(size, min_scale=0.35), FlipItem(0.5)]
+    batch_tfms = [Normalize.from_stats(*imagenet_stats)]
 
-    return (ImageList.from_folder(path).split_by_folder(valid='val')
-            .label_from_folder().transform(([flip_lr(p=0.5)], []), size=size)
-            .databunch(bs=bs)
-            .presize(size, scale=(0.35,1))
-            .normalize(imagenet_stats))
+    csv_file = 'noisy_imagenette.csv'
+    inp = pd.read_csv(source/csv_file)
+    dblock = DataBlock(blocks=blocks,
+               splitter=ColSplitter(),
+               get_x=ColReader('path', pref=source),
+               get_y=ColReader(f'noisy_labels_0'),
+               item_tfms=tfms,
+               batch_tfms=batch_tfms)
+
+    return dblock.dataloaders(inp, path=source, bs=bs)
