@@ -2,6 +2,7 @@ import torch
 import matplotlib.pyplot as plt
 from fastai.vision.all import *
 from torchvision.utils import make_grid
+from fasterai.distill.all import *
 
 
 def plot_kernels(weights, save=None):
@@ -46,3 +47,10 @@ def get_dls(size, bs):
                batch_tfms=batch_tfms)
 
     return dblock.dataloaders(inp, path=source, bs=bs)
+
+def plot_activation(learner, layer_name, image):
+  stored_activation = {}
+  handle = get_module_by_name(learner, layer_name).register_forward_hook(get_activation(stored_activation, layer_name))
+  out = learner.model(image[None])
+  plt.imshow(F.normalize(stored_activation[layer_name].pow(2).mean(1),dim=(1,2)).squeeze().cpu().detach())
+  handle.remove()
