@@ -7,11 +7,11 @@
 
 ### Challenge #1
 
-|Team| Accuracy  |   |   |   |
-|---|---|---|---|---|
-| NH  |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+|Team| Accuracy  | granularity  | context  |  criteria | schedule | 
+|---|---|---|---|---|---|
+| NH  | 78.89  | ?  | ?  | ?  | ? |
+|   |   |   |   |   | |
+|   |   |   |   |   | |
 
 
 ### Challenge #2
