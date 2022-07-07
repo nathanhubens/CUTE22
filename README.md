@@ -9,9 +9,10 @@
 
 |Team| Accuracy  | granularity  | context  |  criteria | schedule | 
 |---|---|---|---|---|---|
+| LLF  | 84.9  | weight  | global  | large_final  | dsd |
 | NH  | 81.93  | ?  | ?  | ?  | ? |
-|  VD | 80.7  | weight  | global  | large_final  | dsd |
-|   |   |   |   |   | |
+| VD | 80.7  | weight  | global  | large_final  | dsd |
+
 
 
 ### Challenge #2
