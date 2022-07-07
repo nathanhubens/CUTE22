@@ -10,7 +10,7 @@
 |Team| Accuracy  | granularity  | context  |  criteria | schedule | 
 |---|---|---|---|---|---|
 | NH  | 81.93  | ?  | ?  | ?  | ? |
-|   |   |   |   |   | |
+|  VD | 80.7  | weight  | global  | large_final  | dsd |
 |   |   |   |   |   | |
 
 
