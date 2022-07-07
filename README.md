@@ -40,8 +40,8 @@
 
 |Team| Accuracy  | granularity  | context  |  criteria | schedule | loss  | layers  | weight |
 |---|---|---|---|---| --- | --- | --- | ---| 
+| LLF  | 85.1 | weight  | global | large_final  | dsd | Attention | layer1,2,3,4  |  0.95  |
 | FC  | 84.5 | weight  | global | large_final  | onecycle | Attention | layer1,2,3,4  |  0.95  |
-| LLF  | 84.3 | weight  | global | large_final  | dsd | Attention | layer1,2,3,4  |  0.95  |
 | NH  | 83.42  |   |   |   | | | | |
 | EE  | 82.14  | weight  | global | large_final  | cos | Attention | layer1,2,3,4  |  0.5  |
 | VD  | 81.12  | weight  | global | large_final  | cos | Attention | layer1,2,3,4  |  0.4  |
