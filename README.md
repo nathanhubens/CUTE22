@@ -10,8 +10,11 @@
 |Team| Accuracy  | granularity  | context  |  criteria | schedule | 
 |---|---|---|---|---|---|
 | LLF  | 84.9  | weight  | global  | large_final  | dsd |
+| EE  | 82.00  | weight  | global  | large_final  | cos |
 | NH  | 81.93  | ?  | ?  | ?  | ? |
+| LB  | 81.39  | weight  | global  | large_final | onecycle |
 | VD | 80.7  | weight  | global  | large_final  | dsd |
+| CF | 80.1  | weight  | local  | updating_movmag  | iterative |
 
 
 
